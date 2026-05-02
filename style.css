@@ -537,40 +537,37 @@ body {
     color: var(--accent-color);
 }
 
-.skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.skill-category-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    opacity: 0.8;
 }
 
-.skill-item {
-    width: 100%;
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.skill-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
+.skill-tags span {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 4px;
     font-size: 0.9rem;
+    color: var(--text-secondary);
     font-family: 'Orbitron', sans-serif;
+    transition: var(--transition);
+    letter-spacing: 1px;
 }
 
-.skill-bar {
-    height: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--secondary-accent), var(--accent-color));
-    width: 0; /* Animated via JS or simple CSS */
-    transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1);
+.skill-tags span:hover {
+    background: var(--accent-glow);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
 }
 
 /* --- Certifications Section --- */

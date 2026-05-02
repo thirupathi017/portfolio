@@ -69,11 +69,6 @@ const revealObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
             
-            // If it's a skill category, trigger progress bars
-            if (entry.target.classList.contains('skills')) {
-                animateProgressBars();
-            }
-            
             // If it's achievements, trigger counters
             if (entry.target.classList.contains('achievements')) {
                 animateCounters();
@@ -83,18 +78,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, revealOptions);
 
 document.querySelectorAll('.reveal, .section').forEach(el => revealObserver.observe(el));
-
-// --- Animate Progress Bars ---
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.skill-progress');
-    progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 100);
-    });
-}
 
 // --- Animate Counters ---
 function animateCounters() {
