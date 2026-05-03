@@ -945,3 +945,37 @@ footer {
     .contact-form { padding: 30px 20px; }
     .section-title { font-size: 1.8rem; }
 }
+
+/* --- Project Categories --- */
+.project-category {
+    margin-bottom: 80px;
+}
+
+.project-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.category-title i {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.category-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-glow), transparent);
+}
+
