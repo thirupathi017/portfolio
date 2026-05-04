@@ -132,25 +132,23 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// --- Contact Form Simulation ---
+// --- Contact Form - Opens Email Client ---
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const btn = this.querySelector('button');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'TRANSMITTING... <i class="fas fa-spinner fa-spin"></i>';
-        btn.disabled = true;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-        setTimeout(() => {
-            formStatus.style.display = 'block';
-            formStatus.textContent = 'TRANSMISSION SUCCESSFUL. STAND BY FOR RESPONSE.';
-            contactForm.reset();
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-            setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
-        }, 2000);
+        const subject = encodeURIComponent('Portfolio Contact from ' + name);
+        const body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+        window.location.href = 'mailto:thirupathi017@gmail.com?subject=' + subject + '&body=' + body;
+
+        formStatus.style.display = 'block';
+        formStatus.textContent = 'Opening your email client...';
+        setTimeout(() => { formStatus.style.display = 'none'; }, 3000);
     });
 }
