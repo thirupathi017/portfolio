@@ -132,23 +132,30 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// --- Contact Form - Opens Email Client ---
+// --- Contact Form ---
 const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
-
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const message = document.getElementById('message').value;
-
-        const subject = encodeURIComponent('Portfolio Contact from ' + name);
-        const body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
-        window.location.href = 'mailto:thirupathi017@gmail.com?subject=' + subject + '&body=' + body;
-
-        formStatus.style.display = 'block';
-        formStatus.textContent = 'Opening your email client...';
-        setTimeout(() => { formStatus.style.display = 'none'; }, 3000);
+        
+        const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=thirupathisivakumar17@gmail.com&su=${subject}&body=${body}`;
+        
+        window.open(gmailUrl, '_blank');
+        
+        contactForm.reset();
+        
+        const statusDiv = document.getElementById('form-status');
+        if (statusDiv) {
+            statusDiv.textContent = "Gmail opened successfully!";
+            statusDiv.style.display = 'block';
+            setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
+        }
     });
 }
