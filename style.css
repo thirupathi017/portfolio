@@ -944,6 +944,16 @@ footer {
     .btn { width: 100%; }
     .contact-form { padding: 30px 20px; }
     .section-title { font-size: 1.8rem; }
+    
+    /* Fix for grids overflowing on mobile */
+    .projects-grid, .skills-grid, .certs-grid, .achievements-list {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Reduce padding on mobile cards */
+    .project-card { padding: 25px 20px; }
+    .skill-category { padding: 25px 20px; }
+    .achievement-item { padding: 25px 20px; }
 }
 
 /* --- Project Categories --- */
