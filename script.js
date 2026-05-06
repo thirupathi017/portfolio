@@ -153,7 +153,7 @@ if (contactForm) {
         
         const statusDiv = document.getElementById('form-status');
         if (statusDiv) {
-            statusDiv.textContent = "Gmail opened successfully!";
+            statusDiv.textContent = "Message Prepared in Gmail!";
             statusDiv.style.display = 'block';
             setTimeout(() => { statusDiv.style.display = 'none'; }, 5000);
         }
