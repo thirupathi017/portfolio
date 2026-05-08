@@ -25,7 +25,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 
 // --- Typing Effect ---
 const typingText = document.getElementById('typing-text');
-const words = ["AI Developer", "Artificial Intelligence & Data Science Student", "SAP Enthusiast", "Full Stack Engineer"];
+const words = ["Artificial Intelligence & Data Science Student", "SAP Enthusiast", "Full Stack Engineer"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
