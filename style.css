@@ -264,8 +264,57 @@ body {
                 radial-gradient(circle at 10% 70%, rgba(112, 0, 255, 0.05) 0%, transparent 50%);
 }
 
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 40px;
+}
+
 .hero-content {
-    max-width: 900px;
+    max-width: 600px;
+}
+
+.hero-image-wrapper {
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 340px;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-glow);
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-alt);
+    animation: float 6s ease-in-out infinite, pulse-glow 3s infinite alternate;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition-slow);
+}
+
+.hero-image:hover img {
+    transform: scale(1.03);
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 20px var(--accent-glow); }
+    100% { box-shadow: 0 0 40px rgba(0, 242, 255, 0.4); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 .subtitle {
@@ -296,7 +345,7 @@ body {
     color: var(--text-primary);
     margin-bottom: 25px;
     font-weight: 700;
-    height: 1.2em; /* For typing effect */
+    min-height: 2.6em; /* Prevents overlapping when long text wraps */
 }
 
 .role span {
@@ -903,6 +952,21 @@ footer {
     .role { font-size: 1.8rem; }
     .contact-grid { grid-template-columns: 1fr; }
     .section-title { font-size: 2.2rem; }
+    .hero-container {
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+        gap: 40px;
+        margin-top: 40px;
+    }
+    .hero-content {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-image {
+        width: 300px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -944,6 +1008,10 @@ footer {
     .btn { width: 100%; }
     .contact-form { padding: 30px 20px; }
     .section-title { font-size: 1.8rem; }
+    .role { min-height: 3.8em; } /* 3 lines on small screens */
+    .hero-image {
+        width: 250px;
+    }
     
     /* Fix for grids overflowing on mobile */
     .projects-grid, .skills-grid, .certs-grid, .achievements-list {
