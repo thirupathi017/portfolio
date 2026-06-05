@@ -255,11 +255,13 @@ body {
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 90px;
+    padding-top: 120px;
+    padding-bottom: 60px;
     background: radial-gradient(circle at 70% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 10% 70%, rgba(112, 0, 255, 0.05) 0%, transparent 50%);
 }
@@ -1008,7 +1010,7 @@ footer {
     .btn { width: 100%; }
     .contact-form { padding: 30px 20px; }
     .section-title { font-size: 1.8rem; }
-    .role { min-height: 3.8em; } /* 3 lines on small screens */
+    .role { min-height: 3.2em; } /* Allow wrapping */
     .hero-image {
         width: 250px;
     }
